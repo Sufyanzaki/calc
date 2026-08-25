@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-100 text-slate-900 antialiased;
+}
+
+.btn-num {
+  @apply rounded-2xl bg-slate-700 text-white hover:bg-slate-600;
+}
+
+.btn-fn {
+  @apply rounded-2xl bg-slate-600 text-white hover:bg-slate-500;
+}
+
+.btn-op {
+  @apply rounded-2xl bg-slate-500 text-white hover:bg-slate-400;
+}
+
+.btn-eq {
+  @apply rounded-2xl bg-orange-500 text-white hover:bg-orange-400;
+}
