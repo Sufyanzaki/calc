@@ -115,9 +115,30 @@ export default function App() {
     { label: '=', onClick: equals, className: 'btn-eq' },
   ];
 
+  const themes = [
+    { name: 'Classic', body: 'bg-slate-100', shell: 'bg-slate-900' },
+    { name: 'Midnight', body: 'bg-indigo-950', shell: 'bg-indigo-900' },
+    { name: 'Forest', body: 'bg-emerald-100', shell: 'bg-emerald-800' },
+    { name: 'Rose', body: 'bg-rose-100', shell: 'bg-rose-800' },
+    { name: 'Sunny', body: 'bg-amber-100', shell: 'bg-amber-700' },
+  ];
+  const [themeIndex, setThemeIndex] = useState(0);
+  const theme = themes[themeIndex];
+
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
-      <div className="w-full max-w-xs rounded-3xl bg-slate-900 p-5 shadow-xl">
+    <div className={`flex min-h-screen flex-col items-center justify-center gap-4 p-4 ${theme.body}`}>
+      <div className="flex items-center gap-2 rounded-full bg-white/70 p-2 shadow-md backdrop-blur">
+        {themes.map((t, i) => (
+          <button
+            key={t.name}
+            title={t.name}
+            aria-label={`${t.name} background`}
+            onClick={() => setThemeIndex(i)}
+            className={`theme-swatch ${t.body} ${i === themeIndex ? 'ring-2 ring-slate-900 ring-offset-2' : ''}`}
+          />
+        ))}
+      </div>
+      <div className={`w-full max-w-xs rounded-3xl p-5 shadow-xl ${theme.shell}`}>
         <div className="mb-4 flex h-20 items-end justify-end overflow-hidden rounded-2xl bg-slate-800 px-4 py-3">
           <span
             className="truncate text-right text-5xl font-extralight text-white"

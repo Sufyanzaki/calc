@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 body {
-  @apply bg-slate-100 text-slate-900 antialiased;
+  @apply text-slate-900 antialiased;
+}
+
+.theme-swatch {
+  @apply h-5 w-5 cursor-pointer rounded-full border-2 border-white/70 transition hover:scale-110;
 }
 
 .btn-num {
